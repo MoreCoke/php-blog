@@ -12,14 +12,14 @@
 <body>
   <nav>
     <ul class="blog-navlist">
-      <li class="logo">Who's Blog</li>
-      <li>文章列表</li>
-      <li>分類專區</li>
-      <li>關於我</li>
+      <li><a class="logo" href="index.php">Who's Blog</a></li>
+      <li><a class="blog-navlist__item" href="#">文章列表</a></li>
+      <li><a class="blog-navlist__item" href="#">分類專區</a></li>
+      <li><a class="blog-navlist__item" href="#">關於我</a></li>
     </ul>
     <ul class="blog-navlist">
-      <li>管理後臺</li>
-      <li>登出</li>
+      <li><a class="blog-navlist__item" href="">管理後臺</a></li>
+      <li><a class="blog-navlist__item" href="login.php">登入</a></li>
     </ul>
   </nav>
   <div class="blog-topic">
