@@ -25,6 +25,11 @@
   <div class="blog-wrapper">
     <form class="blog-block__login" method="POST" action="handle_login.php">
       <div class="blog-block__login-title">Log In</div>
+      <?php
+      $errCode = isset($_GET['errCode']) ? $_GET['errCode'] : null;
+      if ($errCode === '1') { ?>
+        <div class="error">帳號或密碼錯誤</div>
+      <?php } ?>
       <div class="blog-block__login-label">USERNAME</div>
       <input class="blog-block__login-input" type="text" name="username">
       <div class="blog-block__login-label">PASSWORD</div>

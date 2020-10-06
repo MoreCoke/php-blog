@@ -127,6 +127,13 @@ footer {
   font-size: 14px;
 }
 
+.error {
+  color: #a20606;
+  font-size: 20px;
+  margin: 16px 0px;
+  text-align: center;
+}
+
 /* login */
 
 .blog-block__login {
