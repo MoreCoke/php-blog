@@ -172,3 +172,38 @@ footer {
   margin-top: 73px;
   background-image: linear-gradient(#000000, #434343);
 }
+
+/* admin */
+
+.blog-block__admin {
+  border: 1px solid #9a9a9a;
+  width: 920px;
+  box-sizing: border-box;
+  padding: 10px 10px 50px 10px;
+  margin-top: -50px;
+  margin-bottom: 116px;
+  background-color: white;
+}
+
+.admin-post {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #9a9a9a;
+}
+
+.admin-post__time {
+  font-size: 14px;
+  color: #8f8f8f;
+}
+
+.admin-post__setting-btn {
+  display: inline-block;
+  border: 1px solid #8f8f8f;
+  border-radius: 2px;
+  padding: 11px 12px;
+  color: #8f8f8f;
+  text-decoration: none;
+  margin-left: 8px;
+}
