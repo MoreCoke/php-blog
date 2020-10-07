@@ -1,3 +1,8 @@
+<?php
+session_start();
+$username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,8 +23,12 @@
       <li><a class="blog-navlist__item" href="#">關於我</a></li>
     </ul>
     <ul class="blog-navlist">
-      <li><a class="blog-navlist__item" href="">管理後臺</a></li>
-      <li><a class="blog-navlist__item" href="login.php">登入</a></li>
+      <?php if ($username) { ?>
+        <li><a class="blog-navlist__item" href="handle_logout.php">登出</a></li>
+      <?php } else { ?>
+        <li><a class="blog-navlist__item" href="">管理後臺</a></li>
+        <li><a class="blog-navlist__item" href="login.php">登入</a></li>
+      <?php } ?>
     </ul>
   </nav>
   <div class="blog-topic">
