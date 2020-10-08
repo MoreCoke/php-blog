@@ -24,9 +24,9 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
     </ul>
     <ul class="blog-navlist">
       <?php if ($username) { ?>
+        <li><a class="blog-navlist__item" href="admin.php">管理後臺</a></li>
         <li><a class="blog-navlist__item" href="handle_logout.php">登出</a></li>
       <?php } else { ?>
-        <li><a class="blog-navlist__item" href="">管理後臺</a></li>
         <li><a class="blog-navlist__item" href="login.php">登入</a></li>
       <?php } ?>
     </ul>
@@ -42,7 +42,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
           <div class="blog-block__title">
             嗨～歡迎來到程式新手村 feat. 胡斯的異想世界
           </div>
-          <button class="blog-block__edit">編輯</button>
+          <button class="blog-block__edit-btn">編輯</button>
         </div>
         <div class="blog-block__time">2020/07/01 10:15</div>
         <div class="blog-block__content">
@@ -59,7 +59,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
           <div class="blog-block__title">
             嗨～歡迎來到程式新手村 feat. 胡斯的異想世界
           </div>
-          <button class="blog-block__edit">編輯</button>
+          <button class="blog-block__edit-btn">編輯</button>
         </div>
         <div class="blog-block__time">2020/07/01 10:15</div>
         <div class="blog-block__content">
