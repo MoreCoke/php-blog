@@ -1,3 +1,10 @@
+<?php
+session_start();
+require_once('conn.php');
+require_once('utils.php');
+isSessionUser();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,7 +40,7 @@
   <div class="blog-wrapper">
     <div class="blog-block__edit">
       <form class="blog-block__edit-form" method="POST" action="handle_edit_post.php">
-        <div class="edit-title">發表文章</div>
+        <div class="edit-title">更改文章</div>
         <input class="blog-block__edit-input" type="text" name="title" placeholder="請輸入文章標題...">
         <textarea class="blog-block__edit-textarea" name="content" cols="30" rows="10">請輸入內容</textarea>
         <input class="blog-block__edit-submit" type="submit" value="送出文章">

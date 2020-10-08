@@ -1,9 +1,7 @@
 <?php
 session_start();
-$username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
-if (!$username) {
-  header('Location: index.php');
-}
+require_once('utils.php');
+isSessionUser();
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +38,7 @@ if (!$username) {
         <div>嗨～歡迎來到程式新手村 feat. 胡斯的異想世界</div>
         <div>
           <span class="admin-post__time">2020/07/01 10:15</span>
-          <a class="admin-post__setting-btn" href="edit.php">編輯</a>
+          <a class="admin-post__setting-btn" href="edit_post.php">編輯</a>
           <a class="admin-post__setting-btn" href="handle_delete.php">刪除</a>
         </div>
       </div>
@@ -48,7 +46,7 @@ if (!$username) {
         <div>嗨～歡迎來到程式新手村 feat. 胡斯的異想世界</div>
         <div>
           <span class="admin-post__time">2020/07/01 10:15</span>
-          <a class="admin-post__setting-btn" href="edit.php">編輯</a>
+          <a class="admin-post__setting-btn" href="edit_post.php">編輯</a>
           <a class="admin-post__setting-btn" href="handle_delete.php">刪除</a>
         </div>
       </div>
