@@ -6,7 +6,7 @@ $username = isSessionUser();
 $title = isset($_POST['title']) ? $_POST['title'] : null;
 $content = isset($_POST['content']) ? $_POST['content'] : null;
 if (!$title || !$content) {
-  header('Location: add_post.php?errCode=1');
+  die(header('Location: add_post.php?errCode=1'));
 }
 
 $sql = 'INSERT morecoke_blog_posts (username, title, content) VALUES (?,?,?)';

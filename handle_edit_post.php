@@ -7,7 +7,7 @@ $title = $_POST['title'];
 $content = $_POST['content'];
 $id = $_POST['id'];
 if (!$title || !$content) {
-  header('Location: edit_post.php?errCode=1');
+  die(header('Location: edit_post.php?errCode=1'));
 }
 $sql = 'UPDATE morecoke_blog_posts SET title=?, content=? WHERE id=?';
 $stmt = $conn->prepare($sql);
