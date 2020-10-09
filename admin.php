@@ -1,7 +1,13 @@
 <?php
 session_start();
+require_once('conn.php');
 require_once('utils.php');
-isSessionUser();
+$username = isSessionUser();
+$sql = 'SELECT * FROM morecoke_blog_posts WHERE username=?';
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('s', $username);
+$stmt->execute();
+$result = $stmt->get_result();
 ?>
 
 <!DOCTYPE html>
@@ -34,25 +40,24 @@ isSessionUser();
   </div>
   <div class="blog-wrapper">
     <div class="blog-block__admin">
-      <div class="admin-post">
-        <div>嗨～歡迎來到程式新手村 feat. 胡斯的異想世界</div>
-        <div>
-          <span class="admin-post__time">2020/07/01 10:15</span>
-          <a class="admin-post__setting-btn" href="edit_post.php">編輯</a>
-          <a class="admin-post__setting-btn" href="handle_delete.php">刪除</a>
+      <?php while ($row = $result->fetch_assoc()) {
+        $id = $row['id'];
+        $title = $row['title'];
+        $content = $row['content'];
+        $created_at = $row['created_at'];
+      ?>
+        <div class="admin-post">
+          <div><?= $title ?></div>
+          <div>
+            <span class="admin-post__time"><?= $created_at ?></span>
+            <a class="admin-post__setting-btn" href="edit_post.php?id=<?= $id ?>">編輯</a>
+            <a class="admin-post__setting-btn" href="handle_delete.php?id=<?= $id ?>">刪除</a>
+          </div>
         </div>
-      </div>
-      <div class="admin-post">
-        <div>嗨～歡迎來到程式新手村 feat. 胡斯的異想世界</div>
-        <div>
-          <span class="admin-post__time">2020/07/01 10:15</span>
-          <a class="admin-post__setting-btn" href="edit_post.php">編輯</a>
-          <a class="admin-post__setting-btn" href="handle_delete.php">刪除</a>
-        </div>
-      </div>
+      <?php } ?>
     </div>
-
   </div>
+  <footer>Copyright © 2020 Who's Blog All Rights Reserved.</footer>
 </body>
 
 </html>
