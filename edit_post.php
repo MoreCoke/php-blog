@@ -3,6 +3,15 @@ session_start();
 require_once('conn.php');
 require_once('utils.php');
 $username = isSessionUser();
+$id = isset($_GET['id']) ? $_GET['id'] : null;
+$sql = 'SELECT * FROM morecoke_blog_posts WHERE id=?';
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('s', $id);
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
+$title = $row['title'];
+$content = $row['content'];
 ?>
 
 <!DOCTYPE html>
@@ -38,16 +47,23 @@ $username = isSessionUser();
     <span>Welcome to my blog</span>
   </div>
   <div class="blog-wrapper">
+    <?php
+    $errCode = isset($_GET['errCode']) ? $_GET['errCode'] : null;
+    if ($errCode) { ?>
+      <div class="error">標題或內文不得留空</div>
+    <?php } ?>
     <div class="blog-block__edit">
       <form class="blog-block__edit-form" method="POST" action="handle_edit_post.php">
         <div class="edit-title">更改文章</div>
-        <input class="blog-block__edit-input" type="text" name="title" placeholder="請輸入文章標題...">
-        <textarea class="blog-block__edit-textarea" name="content" cols="30" rows="10">請輸入內容</textarea>
+        <input class="blog-block__edit-input" type="text" name="title" value="<?= $title ?>">
+        <input type="hidden" name="id" value="<?= $id ?>">
+        <textarea class="blog-block__edit-textarea" name="content" cols="30" rows="10"><?= $content ?></textarea>
         <input class="blog-block__edit-submit" type="submit" value="送出文章">
         <div class="clearboth"></div>
       </form>
     </div>
   </div>
+  <footer>Copyright © 2020 Who's Blog All Rights Reserved.</footer>
 </body>
 
 </html>
