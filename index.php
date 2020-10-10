@@ -3,7 +3,7 @@ require_once('conn.php');
 session_start();
 $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
 
-$sql = 'SELECT * FROM morecoke_blog_posts ORDER BY id DESC';
+$sql = 'SELECT * FROM morecoke_blog_posts WHERE is_deleted=false ORDER BY id DESC';
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -55,7 +55,10 @@ $result = $stmt->get_result();
               <?= $title ?>
             </div>
             <?php if ($username) { ?>
-              <a class="blog-block__edit-btn" href="edit_post.php?id=<?= $id ?>">編輯</a>
+              <div>
+                <a class="blog-block__edit-btn" href="edit_post.php?id=<?= $id ?>">編輯</a>
+                <a class="blog-block__edit-btn" href="handle_delete.php?id=<?= $id ?>&page=index">刪除</a>
+              </div>
             <?php } ?>
           </div>
           <div class="blog-block__time"><?= $created_at ?></div>

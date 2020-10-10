@@ -3,7 +3,7 @@ session_start();
 require_once('conn.php');
 require_once('utils.php');
 $username = isSessionUser();
-$sql = 'SELECT * FROM morecoke_blog_posts WHERE username=? ORDER BY id DESC';
+$sql = 'SELECT * FROM morecoke_blog_posts WHERE username=? AND is_deleted=false ORDER BY id DESC';
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('s', $username);
 $stmt->execute();
@@ -51,7 +51,7 @@ $result = $stmt->get_result();
           <div>
             <span class="admin-post__time"><?= $created_at ?></span>
             <a class="admin-post__setting-btn" href="edit_post.php?id=<?= $id ?>">編輯</a>
-            <a class="admin-post__setting-btn" href="handle_delete.php?id=<?= $id ?>">刪除</a>
+            <a class="admin-post__setting-btn" href="handle_delete.php?id=<?= $id ?>&page=admin">刪除</a>
           </div>
         </div>
       <?php } ?>
