@@ -2,12 +2,12 @@
 require_once('conn.php');
 session_start();
 $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
-$limit = 5;
-$sql = 'SELECT * FROM morecoke_blog_posts WHERE is_deleted=false ORDER BY id DESC limit ?';
+
+$sql = 'SELECT * FROM morecoke_blog_posts WHERE is_deleted=false ORDER BY id DESC';
 $stmt = $conn->prepare($sql);
-$stmt->bind_param('i', $limit);
 $stmt->execute();
 $result = $stmt->get_result();
+
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +25,6 @@ $result = $stmt->get_result();
   <nav>
     <ul class="blog-navlist">
       <li><a class="logo" href="index.php">Who's Blog</a></li>
-      <li><a class="blog-navlist__item" href="all_posts.php">文章列表</a></li>
       <li><a class="blog-navlist__item" href="#">分類專區</a></li>
       <li><a class="blog-navlist__item" href="#">關於我</a></li>
     </ul>
