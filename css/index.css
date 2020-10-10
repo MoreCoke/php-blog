@@ -71,7 +71,7 @@ body {
 }
 
 .blog-block__group {
-  max-width: 920px;
+  width: 920px;
   box-sizing: border-box;
   padding: 10px;
   margin-top: -50px;
