@@ -5,7 +5,7 @@ require_once('utils.php');
 $username = isSessionUser();
 $id = (int)$_GET['id'];
 $page = $_GET['page'];
-$sql = 'UPDATE morecoke_blog_posts SET is_deleted=1 WHERE id=? AND username=?';
+$sql = 'UPDATE MoreCoke_w11_blog_posts SET is_deleted=1 WHERE id=? AND username=?';
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('is', $id, $username);
 $result = $stmt->execute();

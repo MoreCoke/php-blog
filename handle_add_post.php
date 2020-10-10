@@ -9,7 +9,7 @@ if (!$title || !$content) {
   die(header('Location: add_post.php?errCode=1'));
 }
 
-$sql = 'INSERT morecoke_blog_posts (username, title, content) VALUES (?,?,?)';
+$sql = 'INSERT MoreCoke_w11_blog_posts (username, title, content) VALUES (?,?,?)';
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('sss', $username, $title, $content);
 $result = $stmt->execute();

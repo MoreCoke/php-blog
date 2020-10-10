@@ -3,7 +3,7 @@ require_once('conn.php');
 session_start();
 $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
 $limit = 5;
-$sql = 'SELECT * FROM morecoke_blog_posts WHERE is_deleted=false ORDER BY id DESC limit ?';
+$sql = 'SELECT * FROM MoreCoke_w11_blog_posts WHERE is_deleted=false ORDER BY id DESC limit ?';
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('i', $limit);
 $stmt->execute();

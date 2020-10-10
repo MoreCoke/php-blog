@@ -4,7 +4,7 @@ require_once('conn.php');
 require_once('utils.php');
 $username = isSessionUser();
 $id = isset($_GET['id']) ? $_GET['id'] : null;
-$sql = 'SELECT * FROM morecoke_blog_posts WHERE id=?';
+$sql = 'SELECT * FROM MoreCoke_w11_blog_posts WHERE id=?';
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('s', $id);
 $stmt->execute();

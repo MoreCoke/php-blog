@@ -3,7 +3,7 @@ require_once('conn.php');
 session_start();
 $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
 $id = $_GET['id'];
-$sql = 'SELECT * FROM morecoke_blog_posts WHERE id=?';
+$sql = 'SELECT * FROM MoreCoke_w11_blog_posts WHERE id=?';
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('i', $id);
 $stmt->execute();

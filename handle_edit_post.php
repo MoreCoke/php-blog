@@ -9,7 +9,7 @@ $id = $_POST['id'];
 if (!$title || !$content) {
   die(header('Location: edit_post.php?errCode=1'));
 }
-$sql = 'UPDATE morecoke_blog_posts SET title=?, content=? WHERE id=?';
+$sql = 'UPDATE MoreCoke_w11_blog_posts SET title=?, content=? WHERE id=?';
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('ssi', $title, $content, $id);
 $result = $stmt->execute();

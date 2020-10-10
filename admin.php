@@ -3,7 +3,7 @@ session_start();
 require_once('conn.php');
 require_once('utils.php');
 $username = isSessionUser();
-$sql = 'SELECT * FROM morecoke_blog_posts WHERE username=? AND is_deleted=false ORDER BY id DESC';
+$sql = 'SELECT * FROM MoreCoke_w11_blog_posts WHERE username=? AND is_deleted=false ORDER BY id DESC';
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('s', $username);
 $stmt->execute();
