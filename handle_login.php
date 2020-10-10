@@ -11,8 +11,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
 $passwordHash = $row['password'];
-$checkPassword = password_verify($username, $passwordHash);
-echo ($checkPassword ? 'true' : 'false');
+$checkPassword = password_verify($password, $passwordHash);
 if ($checkPassword) {
   header('Location: index.php');
   $_SESSION['username'] = $username;
