@@ -25,7 +25,7 @@ $result = $stmt->get_result();
   <nav>
     <ul class="blog-navlist">
       <li><a class="logo" href="index.php">Who's Blog</a></li>
-      <li><a class="blog-navlist__item" href="#">文章列表</a></li>
+      <li><a class="blog-navlist__item" href="all_posts.php">文章列表</a></li>
       <li><a class="blog-navlist__item" href="#">分類專區</a></li>
       <li><a class="blog-navlist__item" href="#">關於我</a></li>
     </ul>
